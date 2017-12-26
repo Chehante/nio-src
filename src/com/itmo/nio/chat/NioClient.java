@@ -37,6 +37,7 @@ public class NioClient {
         @Override
         protected void init() throws Exception {
             ch = SocketChannel.open();
+            ch.configureBlocking(false);
             ch.connect(isa);
             buf = ByteBuffer.allocate(BUF_SIZE);
             sel = Selector.open();
